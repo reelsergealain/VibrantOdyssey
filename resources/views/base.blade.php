@@ -17,11 +17,11 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+            <li><a href="#" class="nav-link px-2 text-secondary">Accueil</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Fonctionnalités</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Tarification</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">FAQ</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">À Propos</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -36,14 +36,18 @@
     </div>
   </header>
 <body>
-<div class="container">
+
+{{-- #La liste des artiles est affiché ici --}}
+<div class="container mt-5 vstack gap-3">
     <div class="container">
         @yield('content')
     </div>
-
 </div>
 </body>
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom bg-light">
+
+
+
+    {{-- <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top -fixed-bottom bg-light">
         <p id="footer-date" class="col-md-4 mb-0 text-muted"></p>
 
         <script>
@@ -73,5 +77,5 @@
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">À propos</a></li>
     </ul>
 
-    </footer>
+    </footer> --}}
 </html>

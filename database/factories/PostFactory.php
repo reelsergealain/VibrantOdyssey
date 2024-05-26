@@ -26,7 +26,7 @@ class PostFactory extends Factory
             'slug' => Str::slug($title),
             'excerpt' => Str::limit($description, 150),
             'description' => $description,
-            'thumbnail' => "https://picsum.photos/id/".$this->faker->numberBetween(50, 300)."/200/300",
+            'thumbnail' => "https://picsum.photos/id/".$this->faker->numberBetween(1, 200)."/250/300",
             'created_at' => $created_at,
             'updated_at' => $created_at,
         ];

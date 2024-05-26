@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <!-- Feather-Icons -->
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <header class="p-3 text-bg-dark">
@@ -29,7 +31,7 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Créer un compte</button>
+          <button type="button" class="btn btn-outline-light me-2">Créer un compte <i data-feather="log-in"></i></button>
           <button type="button" class="btn btn-warning">Connexion</button>
         </div>
       </div>
@@ -45,6 +47,9 @@
 </div>
 </body>
 
+<script>
+    feather.replace();
+</script>
 
 
     {{-- <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top -fixed-bottom bg-light">

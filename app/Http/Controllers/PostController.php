@@ -14,4 +14,14 @@ class PostController extends Controller
             'posts' => Post::query()->latest()->paginate(0)
         ]);
     }
+
+    public function show(string $slug, Post $post)
+    {
+        if ($post->slug !== $slug) {
+            return to_route('posts.show', ['slug' => $post->slug, 'post' => $post->id]);
+        }
+        return view('posts.show', [
+            'post' => $post,
+        ]);
+    }
 }

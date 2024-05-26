@@ -30,7 +30,7 @@
                                     <p class="card-text mb-auto">{{ $post->excerpt }}</p>
 
                                     <div class="d-flex justify-content-end">
-                                        <a href="ddd" class="btn btn-outline-warning">Lire la suite
+                                        <a href="{{ route('posts.show', ['slug' => $post->slug, 'post' => $post->id]) }}" class="btn btn-outline-warning">Lire la suite
                                             <i data-feather="book-open"></i>
                                         </a>
                                     </div>

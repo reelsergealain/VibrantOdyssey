@@ -44,18 +44,34 @@
 </div>
 </body>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top fixed-bottom bg-light">
-      <p class="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
+        <p id="footer-date" class="col-md-4 mb-0 text-muted"></p>
+
+        <script>
+            // Récupérer l'élément p par son ID
+            var footerDate = document.getElementById("footer-date");
+
+            // Récupérer la date actuelle
+            var currentDate = new Date();
+
+            // Extraire l'année actuelle
+            var currentYear = currentDate.getFullYear();
+
+            // Mettre à jour le texte de l'élément p avec l'année actuelle
+            footerDate.textContent = "© " + currentYear + " Company, Inc by REEL SERGE ALAIN";
+        </script>
+
 
       <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
       </a>
 
       <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-      </ul>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Accueil</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Fonctionnalités</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Tarifs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQ</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">À propos</a></li>
+    </ul>
+
     </footer>
 </html>

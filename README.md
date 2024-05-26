@@ -15,12 +15,6 @@ VibrantOdyssey est bien plus qu'un blog, c'est une communauté florissante de d�
 
 Nous remercions chaleureusement nos sponsors pour leur soutien continu :
 
-### Partenaires Premium
-
-- **[Votre Sponsor 1](https://yoursponsor1.com/)**
-- **[Votre Sponsor 2](https://yoursponsor2.com)**
-- **[Votre Sponsor 3](https://yoursponsor3.com/)**
-
 [Contactez-nous](mailto:reelsergealain@gmail.com) pour devenir sponsor et promouvoir votre marque auprès de notre communauté vibrante !
 
 ## Contributions

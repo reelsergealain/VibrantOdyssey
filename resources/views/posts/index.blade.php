@@ -22,7 +22,9 @@
                                             <span class="badge rounded-pill text-bg-dark">Python Tutorials</span>
                                             <span class="badge rounded-pill text-bg-dark">Python Tutorials</span>
                                         </div>
-                                        <strong class="ms-auto text-warning-emphasis">World</strong>
+                                        @if ($post->category)
+                                            <strong class="ms-auto text-secondary-emphasis">{{ $post->category->name }}</strong>
+                                        @endif
                                     </div>
 
                                     <h3 class="mb-0">{{ $post->title }}</h3>

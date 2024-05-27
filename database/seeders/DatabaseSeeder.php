@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Post;
+use Database\Seeders\TagSeeder;
 use Illuminate\Database\Seeder;
+use Database\Seeders\PostSeeder;
+use Database\Seeders\CatgorySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CatgorySeeder::class,
-            // TagSeeder::class,
+            TagSeeder::class,
             PostSeeder::class,
         ]);
     }

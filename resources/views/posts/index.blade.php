@@ -19,8 +19,11 @@
                                 <div class="col p-4 d-flex flex-column position-static">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <div class="d-inline-block gap-2 mb-3">
-                                            <span class="badge rounded-pill text-bg-dark">Python Tutorials</span>
-                                            <span class="badge rounded-pill text-bg-dark">Python Tutorials</span>
+                                            @if ($post->tags)
+                                                @foreach ($post->tags as $tag)
+                                                    <span class="badge rounded-pill text-bg-dark">{{ $tag->name }}</span>
+                                                @endforeach
+                                            @endif
                                         </div>
                                         @if ($post->category)
                                             <strong class="ms-auto text-secondary-emphasis">{{ $post->category->name }}</strong>

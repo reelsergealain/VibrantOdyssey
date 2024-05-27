@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostByCategoryController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,3 +13,6 @@ Route::get('/article/{slug}-{post}',[PostController::class, 'show'])->name('post
     'slug' => $slug,
     'post' => $id,
 ]);
+
+// Route __invoke pour voir les Categorys
+Route::get('/categorie/{category}', PostByCategoryController::class)->name('postByCategory');

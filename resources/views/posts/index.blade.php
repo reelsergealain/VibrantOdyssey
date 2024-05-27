@@ -26,7 +26,7 @@
                                             @endif
                                         </div>
                                         @if ($post->category)
-                                            <strong class="ms-auto text-secondary-emphasis">{{ $post->category->name }}</strong>
+                                            <strong class="ms-auto text-secondary-emphasis"><a class="text-decoration-none text-secondary" href="{{ route('postByCategory', ['category' => $post->category]) }}">{{ $post->category->name }}</a></strong>
                                         @endif
                                     </div>
 

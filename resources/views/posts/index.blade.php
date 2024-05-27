@@ -21,7 +21,7 @@
                                         <div class="d-inline-block gap-2 mb-3">
                                             @if ($post->tags)
                                                 @foreach ($post->tags as $tag)
-                                                    <span class="badge rounded-pill text-bg-dark">{{ $tag->name }}</span>
+                                                    <a href="{{ route('postByTag', $tag) }}"><span class="badge rounded-pill text-bg-dark">{{ $tag->name }}</span></a>
                                                 @endforeach
                                             @endif
                                         </div>

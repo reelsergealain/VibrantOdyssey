@@ -19,4 +19,9 @@ class Tag extends Model
     {
         return $this->belongsToMany(Post::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug'; // ça permet de choisir entre le slug ou $id
+    }
 }

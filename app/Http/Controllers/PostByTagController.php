@@ -13,9 +13,13 @@ class PostByTagController extends Controller
      */
     public function __invoke(Tag $tag)
     {
+        return $this->postViews(["tag"=> $tag]);
+    }
 
+    public function postViews(array $filters)
+    {
         return view('posts.index', [
-            'posts' => Post::whereRelation('tags', 'tags.id', $tag->id)->latest()->paginate(15),
+            'posts' => Post::filters( $filters )->latest()->paginate(15),
         ]);
     }
 }

@@ -11,19 +11,7 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-
-        $posts = Post::query()->with(['tags', 'category']);
-
-        if ($search = $request->search)
-        {
-            $posts->where('title', 'LIKE', '%'. $search .'%')
-            ->orWhere('description', 'LIKE', '%'. $search .'%');
-        }
-
-        return view('posts.index', [
-            'posts' => $posts->latest()->paginate(10),
-            // 'categories' => Category::all(),
-        ]);
+        return $this->postViews($request->search ? ["search"=> $request->search] : []);
     }
 
     public function show(string $slug, Post $post)
@@ -36,8 +24,11 @@ class PostController extends Controller
         ]);
     }
 
-    public function postByCategory(Category $category)
+    public function postViews(array $filters)
     {
-
+        return view('posts.index', [
+            'posts' => Post::filters( $filters )->latest()->paginate(15),
+        ]);
     }
+
 }

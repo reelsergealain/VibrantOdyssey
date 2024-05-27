@@ -10,6 +10,7 @@
 </head>
 <header class="p-3 text-bg-dark">
     <div class="container">
+
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-badge-vo text-warning" viewBox="0 0 16 16">
@@ -17,7 +18,7 @@
                 <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
               </svg>
         </a>
-
+      </button>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 text-secondary">Accueil</a></li>
             <li><a href="#" class="nav-link px-2 text-white">Fonctionnalités</a></li>
@@ -51,9 +52,35 @@
     feather.replace();
 </script>
 
+<script>
+    function myFunction() {
+      var element = document.body;
+      element.dataset.bsTheme =
+        element.dataset.bsTheme == "light" ? "dark" : "light";
+    }
+    function stepFunction(event) {
+      debugger;
+      var element = document.getElementsByClassName("collapse");
+      for (var i = 0; i < element.length; i++) {
+        if (element[i] !== event.target.ariaControls) {
+          element[i].classList.remove("show");
+        }
+      }
+    }
+  </script>
+        {{-- <input
+        class="form-check-input d-none  p-2 form-check form-switch"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckChecked"
+        checked
+        onclick="myFunction()"
+      />
+      <label class="btn btn-secondary btn-sm mb-5 p-3" for="flexSwitchCheckChecked"> <i data-feather="sun"></i></label> --}}
+
 
     {{-- <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top -fixed-bottom bg-light">
-        <p id="footer-date" class="col-md-4 mb-0 text-muted"></p>
+        <p id="footer-date" class="col-md-4 mb-0 text-muted"> </p>
 
         <script>
             // Récupérer l'élément p par son ID

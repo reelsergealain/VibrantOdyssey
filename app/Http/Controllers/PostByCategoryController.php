@@ -13,8 +13,13 @@ class PostByCategoryController extends Controller
      */
     public function __invoke(Category $category)
     {
+        return $this->postViews(["category"=> $category]);
+    }
+
+    public function postViews(array $filters)
+    {
         return view('posts.index', [
-            'posts' => Post::query()->where('category_id', $category->id)->latest()->paginate(15)
+            'posts' => Post::filters( $filters )->latest()->paginate(15),
         ]);
     }
 }

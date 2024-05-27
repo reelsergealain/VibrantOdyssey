@@ -9,10 +9,20 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+
+        $posts = Post::query()->with(['tags', 'category']);
+
+        if ($search = $request->search)
+        {
+            $posts->where('title', 'LIKE', '%'. $search .'%')
+            ->orWhere('description', 'LIKE', '%'. $search .'%');
+        }
+
         return view('posts.index', [
-            'posts' => Post::query()->latest()->paginate(15)
+            'posts' => $posts->latest()->paginate(10),
+            // 'categories' => Category::all(),
         ]);
     }
 
@@ -28,6 +38,6 @@ class PostController extends Controller
 
     public function postByCategory(Category $category)
     {
-        
+
     }
 }

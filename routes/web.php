@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PostByCategoryController;
 use App\Http\Controllers\PostByTagController;
 use App\Http\Controllers\PostController;
@@ -18,6 +19,8 @@ Route::get('/article/{slug}-{post}',[PostController::class, 'show'])->name('post
 // Route __invoke pour voir les Categorys
 Route::get('/categorie/{category}', PostByCategoryController::class)->name('postByCategory');
 
-
 // Route __invoke pour voir les Tags
 Route::get('/etiquette/{tag}', PostByTagController::class)->name('postByTag');
+
+Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class,'register']);

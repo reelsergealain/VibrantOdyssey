@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostByCategoryController;
 use App\Http\Controllers\PostByTagController;
 use App\Http\Controllers\PostController;
@@ -24,3 +25,5 @@ Route::get('/etiquette/{tag}', PostByTagController::class)->name('postByTag');
 
 Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class,'register']);
+
+Route::get('/home', [HomeController::class,'index'])->name('home');

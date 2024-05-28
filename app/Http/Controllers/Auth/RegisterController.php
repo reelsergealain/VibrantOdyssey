@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
-    public function showRegistrationForm(Request $request)
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+
+    public function showRegistrationForm()
     {
         return view("auth.register");
     }
@@ -28,6 +34,6 @@ class RegisterController extends Controller
         $user = User::create($validated);
         Auth::login($user);
 
-        return to_route('posts.index')->with('success','Votre compte à bien été creer!');
+        return to_route('home')->with('success','Votre compte à bien été creer!');
     }
 }

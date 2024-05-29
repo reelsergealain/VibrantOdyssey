@@ -37,11 +37,22 @@
                     class="form-control form-control-dark text-bg-white" placeholder="Search..." aria-label="Search">
             </form>
 
-            <div class="text-end">
-                <a href="{{ route('register') }}" class="btn btn-outline-light me-2">Créer un compte <i
-                        data-feather="log-in"></i></a>
-                <button type="button" class="btn btn-warning">Connexion</button>
-            </div>
+            @guest
+                <div class="text-end">
+                    <a href="{{ route('register') }}" class="btn btn-outline-light me-2">Créer un compte <i
+                            data-feather="log-in"></i></a>
+                    <a href="{{ route('login') }}" type="button" class="btn btn-warning">Connexion</a>
+                </div>
+            @endguest
+            @auth
+                <div class="text-end">
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        @method('POST')
+                        <button href="{{ route('logout') }}" type="submit" class="btn btn-warning">Deconection</button>
+                    </form>
+                </div>
+            @endauth
         </div>
     </div>
 </header>
@@ -60,24 +71,16 @@
                     </ul>
                 </div>
             @endif --}}
-           @if(session('success'))
-           <div
-           class="alert alert-success alert-dismissible fade show mt-3"
-           role="alert"
-       >
-           <button
-               type="button"
-               class="btn-close"
-               data-bs-dismiss="alert"
-               aria-label="Close"
-           ></button>
-           <p>{{ session('success') }}</p>
-       </div>
-           @endif
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <p>{{ session('success') }}</p>
+                </div>
+            @endif
 
             <script>
                 var alertList = document.querySelectorAll(".alert");
-                alertList.forEach(function (alert) {
+                alertList.forEach(function(alert) {
                     new bootstrap.Alert(alert);
                 });
             </script>

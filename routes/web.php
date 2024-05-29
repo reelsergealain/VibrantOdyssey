@@ -26,4 +26,13 @@ Route::get('/etiquette/{tag}', PostByTagController::class)->name('postByTag');
 Route::get('/register', [RegisterController::class,'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class,'register']);
 
+Route::get('/login', [RegisterController::class,'showLoginForm'])->name('login');
+Route::post('/login', [RegisterController::class,'login']);
+
+Route::post('/logout', [RegisterController::class,'logout'])->name('logout');
+
 Route::get('/home', [HomeController::class,'index'])->name('home');
+
+Route::get('/logout', function () {
+        return to_route('posts.index');
+});

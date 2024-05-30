@@ -32,6 +32,7 @@ Route::post('/login', [RegisterController::class, 'login']);
 Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/home', [HomeController::class, 'updatePassword'])->name('updatePassword');
 
 Route::post('{post}/comment', [PostController::class, 'comment'])->name('posts.comment')->where([
     'slug' => $slug,
@@ -42,3 +43,5 @@ Route::post('{post}/comment', [PostController::class, 'comment'])->name('posts.c
 Route::get('/logout', function () {
     return to_route('posts.index');
 });
+
+

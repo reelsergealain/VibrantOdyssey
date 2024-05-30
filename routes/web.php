@@ -33,6 +33,12 @@ Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::post('{post}/comment', [PostController::class, 'comment'])->name('posts.comment')->where([
+    'slug' => $slug,
+    'post' => $id,
+]);
+
+
 Route::get('/logout', function () {
     return to_route('posts.index');
 });

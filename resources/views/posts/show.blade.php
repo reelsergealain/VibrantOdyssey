@@ -39,6 +39,44 @@
                 </div>
             </div>
             <hr>
+            <h3 class="lead h5 text-s ml-0">Voulez vous rajouter quelque chose ?</h3>
+            @guest
+                <code class="card text-danger w-50 p-3">Connectez vous pour pouvoir laissez un commentaire ...</code>
+            @endguest
+            @auth
+                <form action="{{ route('posts.comment', ['slug' => $post->slug, 'post' => $post->id]) }}" method="post"
+                    class="d-flex gap-3">
+                    @csrf
+                    @method('POST')
+                    <input @required(true) type="text" name="content" id="content" class="form-control w-50"
+                        placeholder="Ecrivrez votre commentaire ici">
+                    @error('content')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    <button class="btn btn-sm btn-warning d-inline-block" type="submit">📤 Commentez</button>
+                </form>
+            @endauth
+
+            @if ($post->comments->count() > 0)
+                @foreach ($post->comments as $comment)
+                    <div class="card shadow-sm mt-3 p-3 bg-light col-10 mb-5">
+                        <div class="d-flex justify-content-between align-items-center gap-3">
+                            <h2 class="text-success h5">{{ $comment->user->name }}</h2>
+                            <h2 class="lead h5 text-s">{{ $comment->created_at->diffForHumans() }}</h2>
+                        </div>
+                        <p class=" p-2">{{ $comment->content }}.</p>
+
+                    </div>
+                @endforeach
+            @else
+                <div class="alert alert-warning px-3 mt-3 w-50" role="alert">
+                    <strong>Pas de commentaire pour ce post actuelement ...</strong>
+                </div>
+            @endif
+
+
         </div>
     </div>
 @endsection

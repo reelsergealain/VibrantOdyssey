@@ -24,12 +24,11 @@
                 </svg>
             </a>
             </button>
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 text-secondary">Accueil</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Fonctionnalités</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Tarification</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">FAQ</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">À Propos</a></li>
+            <ul class="nav col-12 col-lg-auto mx-4 me-lg-auto ml-3 mb-2 justify-content-center mb-md-0">
+                @if (Auth::user()->isAdmin())
+                    <li><a href="{{ route('admin.posts.index') }}"
+                            class=" ml-3 px-2 btn btn-primary text-white">Administration</a></li>
+                @endif
             </ul>
 
             <form method="get" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

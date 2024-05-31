@@ -45,6 +45,6 @@ Route::get('/logout', function () {
     return to_route('posts.index');
 });
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('/posts', AdminController::class)->except(['show'])->names('admin.posts');
 });

@@ -13,7 +13,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.posts.index', [
+            'posts' => Post::query()->without('category', 'tags')->latest()->paginate(25),
+        ]);
     }
 
     /**

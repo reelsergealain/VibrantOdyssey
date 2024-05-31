@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostByCategoryController;
@@ -44,4 +45,6 @@ Route::get('/logout', function () {
     return to_route('posts.index');
 });
 
-
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::resource('/posts', AdminController::class)->except(['show'])->names('admin.posts');
+});
